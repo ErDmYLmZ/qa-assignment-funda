@@ -1,4 +1,4 @@
-package com.funda.tests.stepdefinitions;
+package com.funda.tests.hooks;
 
 import com.funda.tests.test_base.TestBase;
 import com.microsoft.playwright.Browser;
@@ -16,43 +16,51 @@ import java.nio.file.Paths;
 public class Hooks extends TestBase {
 
     @Before()
-    public static void setup() {
+    public void setup() {
         String browserType = System.getProperty("browser", "chromium");
 
-        playwright = Playwright.create();
+        TestBase.playwright = Playwright.create();
 
         switch (browserType.toLowerCase()) {
             case "chromium":
                 browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
                         .setChannel("chrome")
                         .setHeadless(false)
-                        .setSlowMo(200));
-                context=browser.newContext(new Browser.NewContextOptions().setUserAgent(dotenv.get("USER_AGENT")));
-
+                        .setSlowMo(300));
                 break;
             case "firefox":
                 browser = playwright.firefox().launch(new BrowserType.LaunchOptions()
                         .setHeadless(false)
-                        .setSlowMo(200));
+                        .setSlowMo(300));
                 break;
             case "webkit":
                 browser = playwright.webkit().launch(new BrowserType.LaunchOptions()
                         .setHeadless(false)
-                        .setSlowMo(200));
+                        .setSlowMo(300));
                 break;
             default:
                 throw new IllegalArgumentException("Unsupported browser: " + browserType);
         }
+        context=browser.newContext(new Browser.NewContextOptions().setUserAgent(dotenv.get("USER_AGENT")));
         page = context.newPage();
         log.info("Browser '{}' started", browserType);
+
     }
 
     @After()
-    public static void teardown() {
-        if (page != null) page.close();
-        if (browser != null) browser.close();
-        if (playwright != null) playwright.close();
-        log.info("Tear down is successful");
+    public void teardown() {
+        if (page != null) {
+            page.close();
+            log.info("Page closed");
+        }
+        if (browser != null) {
+            browser.close();
+            log.info("Browser closed");
+        }
+        if (playwright != null) {
+            playwright.close();
+            log.info("Playwright closed");
+        }
     }
 
     @After

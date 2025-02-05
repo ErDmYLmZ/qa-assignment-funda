@@ -12,13 +12,10 @@ import org.junit.runner.RunWith;
                 "json:target/test-reports/json-reports/cucumber.json",
                 "junit:target/test-reports/xml-report/cucumber.xml",
                 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-                "rerun:target/failed-tests.txt",
 
         },
-        features = "src/test/resources/features",
-        glue = "com.funda.tests",
-        tags = "@SmokeTest"
+        features = "@target/failed-tests.txt",
+        glue = "com.funda.tests"
 )
-public class SmokeTestsRunner {
+public class FailedTestCaseRunner {
 }
-

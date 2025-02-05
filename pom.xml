@@ -117,7 +117,7 @@
                 <version>${maven.surefire.plugin.version}</version>
                 <configuration>
                     <includes>
-                        <include>**/*Runner.java</include>
+                        <include>**/*TestsRunner.java</include>
                     </includes>
                     <useSystemClassLoader>true</useSystemClassLoader>
                     <reportsDirectory>${project.build.directory}/test-reports/surefire-reports</reportsDirectory>
