@@ -3,6 +3,7 @@ package com.funda.tests.stepdefinitions;
 import com.funda.tests.pages.HomePage;
 import com.funda.tests.pages.SearchResultPage;
 import com.funda.tests.test_base.TestBase;
+import com.funda.tests.utils.ConfigurationReader;
 import com.funda.tests.utils.CsvReader;
 import com.microsoft.playwright.options.LoadState;
 import io.cucumber.java.Before;
@@ -25,7 +26,7 @@ public class SearchSteps extends TestBase {
     }
 
     private void loadTestData() {
-        String citySearchDataCsvPath = "src/test/resources/test_data/citySearchData.csv";
+        String citySearchDataCsvPath = ConfigurationReader.get("citySearchDataCsvPath");
         List<String[]> cityName = CsvReader.readCsvData(citySearchDataCsvPath);
         if (cityName.isEmpty()) {
             throw new IllegalStateException("CSV file is empty or incorrect");
@@ -37,12 +38,11 @@ public class SearchSteps extends TestBase {
 
     @Given("User opens the Funda homepage")
     public void user_opens_the_funda_homepage() {
-        page.navigate(dotenv.get("URL"));
+        page.navigate(ConfigurationReader.get("baseUrl"));
         page.waitForLoadState(LoadState.LOAD);
         homePage.acceptButtonClick();
         page.waitForLoadState(LoadState.NETWORKIDLE);
-        String expectedPageTitle = "Zoek huizen en appartementen te koop / huur in Nederland [funda]";
-        assertEquals(expectedPageTitle,page.title(),"Page title does not match!");
+        assertEquals(ConfigurationReader.get("homePageTitle"),page.title(),"Page title does not match!");
 
     }
     @Then("The Funda logo is displayed")
