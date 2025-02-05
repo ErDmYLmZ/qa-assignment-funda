@@ -1,4 +1,4 @@
-@SmokeTest1
+@SmokeTest
 Feature: Buy and Rent Search Available
 
   Background: User is on Funda Homepage

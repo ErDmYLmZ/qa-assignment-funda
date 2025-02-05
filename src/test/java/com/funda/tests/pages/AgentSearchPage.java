@@ -1,4 +1,26 @@
 package com.funda.tests.pages;
 
+import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Page;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class AgentSearchPage {
+    private final Locator agentSearchPageHeader;
+    private final Locator agentSearchPageBoard;
+
+    public AgentSearchPage(Page page) {
+        this.agentSearchPageHeader = page.locator("//h1[normalize-space()='Vind een NVM-makelaar die je verder helpt']");
+        this.agentSearchPageBoard = page.getByTestId("wizard-step-one");
+    }
+
+    public void assertAgentSearchPageHeader() {
+        assertEquals("Vind een NVM-makelaar die je verder helpt",agentSearchPageHeader.textContent().trim());
+    }
+
+    public void assertAgentSearchPageBoardIsVisible() {
+        assertTrue(agentSearchPageBoard.isVisible());
+
+    }
 }
