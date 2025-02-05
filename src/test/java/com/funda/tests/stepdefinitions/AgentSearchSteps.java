@@ -13,8 +13,8 @@ public class AgentSearchSteps extends TestBase {
         if (agentSearchPage == null) agentSearchPage = new AgentSearchPage(page);
     }
 
-    @When("User clicks on the {string} button")
-    public void user_clicks_on_the_button(String string) {
+    @When("User clicks on the Zoek_een_NVM_makelaar button")
+    public void user_clicks_on_the_button() {
         homePage.zoekEenNvmMakelaarButtonClick();
     }
     @Then("The agent search page is displayed")

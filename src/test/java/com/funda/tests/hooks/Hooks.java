@@ -26,17 +26,17 @@ public class Hooks extends TestBase {
                 browser = playwright.chromium().launch(new BrowserType.LaunchOptions()
                         .setChannel("chrome")
                         .setHeadless(false)
-                        .setSlowMo(300));
+                        .setSlowMo(50));
                 break;
             case "firefox":
                 browser = playwright.firefox().launch(new BrowserType.LaunchOptions()
                         .setHeadless(false)
-                        .setSlowMo(300));
+                        .setSlowMo(50));
                 break;
             case "webkit":
                 browser = playwright.webkit().launch(new BrowserType.LaunchOptions()
                         .setHeadless(false)
-                        .setSlowMo(300));
+                        .setSlowMo(50));
                 break;
             default:
                 throw new IllegalArgumentException("Unsupported browser: " + browserType);
