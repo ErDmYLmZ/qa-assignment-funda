@@ -17,10 +17,12 @@ public class AgentSearchSteps extends TestBase {
     public void user_clicks_on_the_button() {
         homePage.zoekEenNvmMakelaarButtonClick();
     }
+
     @Then("The agent search page is displayed")
     public void the_agent_search_page_is_displayed() {
         agentSearchPage.assertAgentSearchPageHeader();
         agentSearchPage.assertAgentSearchPageBoardIsVisible();
+        agentSearchPage.assertAgentSearchPageTitle();
     }
 
 

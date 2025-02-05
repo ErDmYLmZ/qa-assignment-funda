@@ -32,7 +32,7 @@ public class SearchSteps extends TestBase {
             throw new IllegalStateException("CSV file is empty or incorrect");
         }
         for (int i = 0; i < cityName.size(); i++) {
-            testDataMap.put("city"+ i, cityName.get(i)[0]);
+            testDataMap.put("city" + i, cityName.get(i)[0]);
         }
     }
 
@@ -42,21 +42,25 @@ public class SearchSteps extends TestBase {
         page.waitForLoadState(LoadState.LOAD);
         homePage.acceptButtonClick();
         page.waitForLoadState(LoadState.NETWORKIDLE);
-        assertEquals(ConfigurationReader.get("homePageTitle"),page.title(),"Page title does not match!");
+        assertEquals(ConfigurationReader.get("homePageTitle"), page.title(), "Page title does not match!");
 
     }
+
     @Then("The Funda logo is displayed")
     public void the_funda_logo_is_displayed() {
         homePage.verifyLogo();
     }
+
     @Then("The search bar is present")
     public void the_search_bar_is_present() {
         homePage.searchBarIsVisible();
     }
+
     @When("User selects Koop as a search type for buying")
     public void user_selects_as_a_search_type() {
         homePage.selectKoop();
     }
+
     @When("User enters {string} in the search bar and starts searching")
     public void user_enters_in_the_search_bar(String cityPlaceholder) {
         String city = testDataMap.get(cityPlaceholder);
@@ -66,13 +70,14 @@ public class SearchSteps extends TestBase {
         homePage.fillSearchBar(city);
         homePage.CityClick();
     }
+
     @Then("Search results page for {string} is displayed")
     public void search_results_page_for_buying_is_displayed(String cityPlaceholder) {
         String city = testDataMap.get(cityPlaceholder);
         if (city == null) {
             throw new IllegalArgumentException("No available test data for : " + cityPlaceholder);
         }
-       searchResultPage.assertCitySearchResult(city);
+        searchResultPage.assertCitySearchResult(city);
     }
 
     @When("User selects Huur as a search type for renting")

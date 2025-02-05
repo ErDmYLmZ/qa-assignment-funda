@@ -18,6 +18,7 @@ public class MapSteps extends TestBase {
         homePage.zoekOpKaartButtonClick();
 
     }
+
     @Then("The map is displayed")
     public void the_map_is_displayed() {
         mapDisplayPage.isMmapVisible();
