@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HomePage {
     private final Page page;
+    private final Locator acceptButton;
     private final Locator inloggenButton;
     private final Locator koopButton;
     private final Locator huurButton;
@@ -20,6 +21,7 @@ public class HomePage {
 
     public HomePage(Page page) {
         this.page = page;
+        this.acceptButton = page.locator("button[id='didomi-notice-agree-button'] span");
         this.inloggenButton = page.locator("//span[@class='pt-1 text-xs md:pt-0 md:text-base']");
         this.accountButton = page.locator("//button[@id='headlessui-menu-button-v-0-34']");
         this.koopButton = page.locator("//button[normalize-space()='Koop']");
@@ -30,6 +32,10 @@ public class HomePage {
         this.zoekEenNvmMakelaarButton = page.locator("//a[@href='/makelaar-zoeken']");
         this.zoekOpKaartButton = page.locator("//a[normalize-space()='Zoek op kaart']");
 
+    }
+    public void acceptButtonClick() {
+        acceptButton.waitFor();
+        acceptButton.click();
     }
 
     public void inLoggenButtonClick() {

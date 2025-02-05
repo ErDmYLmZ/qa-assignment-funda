@@ -3,13 +3,14 @@ Feature: User Login is available
 
   Scenario Outline: User Login
     Given User opens the Funda homepage
-    When User clicks on "Inloggen" button
+    When User clicks on Inloggen button
     And User enters valid email "<email>" and password "<password>"
     And User clicks the login button
     Then User logs in successfully
 
     Examples:
       | email     | password  |
-      | test_data | test_data |
+      | email0    | password0 |
+      | email1    | password1 |
 
 

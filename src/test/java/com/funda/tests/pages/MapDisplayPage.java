@@ -2,7 +2,7 @@ package com.funda.tests.pages;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
-import com.microsoft.playwright.options.LoadState;
+
 
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -17,9 +17,8 @@ public class MapDisplayPage {
     }
 
     public void isMmapVisible() {
-        page.waitForLoadState(LoadState.LOAD);
+        mapElement.waitFor();
         assertTrue(mapElement.isVisible());
-        System.out.println("mapElement.isVisible() = " + mapElement.isVisible());
     }
 }
 
