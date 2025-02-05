@@ -3,6 +3,7 @@ package com.funda.tests.stepdefinitions;
 import com.funda.tests.pages.HomePage;
 import com.funda.tests.pages.LoginPage;
 import com.funda.tests.test_base.TestBase;
+import com.funda.tests.utils.ConfigurationReader;
 import com.funda.tests.utils.CsvReader;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 public class LoginSteps extends TestBase {
-    private static Map<String, String> testDataMap = new HashMap<>();
+    private static final Map<String, String> testDataMap = new HashMap<>();
 
     @Before
     public void initPageObjects() {
@@ -21,7 +22,7 @@ public class LoginSteps extends TestBase {
         loadTestData();
     }
     private void loadTestData() {
-        String loginTestCredentialsCsvPath = "src/test/resources/test_data/loginTestCredentials.csv";
+        String loginTestCredentialsCsvPath = ConfigurationReader.get("loginTestCredentialsCsvPath");
         List<String[]> loginTestCredentials = CsvReader.readCsvData(loginTestCredentialsCsvPath);
         if (loginTestCredentials.isEmpty()) {
             throw new IllegalStateException("CSV file is empty or incorrect");

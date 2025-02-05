@@ -1,5 +1,6 @@
 package com.funda.tests.pages;
 
+import com.funda.tests.utils.ConfigurationReader;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
@@ -16,7 +17,7 @@ public class AgentSearchPage {
     }
 
     public void assertAgentSearchPageHeader() {
-        assertEquals("Vind een NVM-makelaar die je verder helpt",agentSearchPageHeader.textContent().trim());
+        assertEquals(ConfigurationReader.get("agentSearchPageHeader"),agentSearchPageHeader.textContent().trim());
     }
 
     public void assertAgentSearchPageBoardIsVisible() {

@@ -5,7 +5,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 @Slf4j
-public class CrossBrowserRunner {
+class CrossBrowserRunner {
 
     @ParameterizedTest
     @ValueSource(strings = {"chromium", "firefox", "webkit"})
