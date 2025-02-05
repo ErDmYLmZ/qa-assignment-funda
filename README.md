@@ -56,15 +56,17 @@ This smoke test suite is designed with `scalability` in mind. Features,Pages,ste
 
 ---
 ## Setup Instructions
-Clone this repository:
-
 1. Clone the repository.
+```
+git clone https://github.com/ErDmYLmZ/qa-assignment-funda.git
+```
 2. Open the `.env` file in the project root.
-3. In the `.env` file, replace the placeholder value for `USER_AGENT` with the real user agent value. Example:USER_AGENT="Please replace this placeholder with the real agent value"  **Do not commit this file to version control with the real value.**
+3. In the `.env` file, replace the placeholder value for `USER_AGENT` with the real user agent value. Example:USER_AGENT="Please replace this placeholder with the real agent value"  
+> **The .env file was committed to version control,since it has a placeholder value**
 
-```
- git clone https://github.com/ErDmYLmZ/qa-assignment-funda.git
-```
+> **Do not commit this file to version control with the real value.**
+
+
 ### To Run the tests via Terminal/Command Prompt
 1. Navigate to the project directory:
 * ```
