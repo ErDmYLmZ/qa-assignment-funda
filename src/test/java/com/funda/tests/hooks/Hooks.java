@@ -41,7 +41,7 @@ public class Hooks extends TestBase {
             default:
                 throw new IllegalArgumentException("Unsupported browser: " + browserType);
         }
-        context=browser.newContext(new Browser.NewContextOptions().setUserAgent(dotenv.get("USER_AGENT")));
+        context = browser.newContext(new Browser.NewContextOptions().setUserAgent(dotenv.get("USER_AGENT")));
         page = context.newPage();
         log.info("Browser '{}' started", browserType);
 

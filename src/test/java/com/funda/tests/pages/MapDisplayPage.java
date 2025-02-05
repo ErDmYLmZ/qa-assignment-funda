@@ -4,7 +4,6 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
 
-
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MapDisplayPage {

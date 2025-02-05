@@ -1,7 +1,12 @@
-# Funda Automated Smoke Test Suite
+> #  !! Please follow the [Setup Instructions](#setup-instructions) below carefully to bypass the robot detection !!
+> 
 ---
+
+## Funda Automated Smoke Test Suite
+
 This repository contains an automated smoke test suite for the Funda.nl. These tests are designed to provide rapid feedback on the health of Funda's core functionalities, ensuring that critical user journeys are operational. They are *not* intended to be exhaustive functional tests, but rather high-level checks to confirm that the most essential parts of the application are working.
 
+---
 ## Test Scope and Coverage
 This smoke test suite covers the following key areas of the Funda.nl:
 * **Searching for Buying Properties:** Verifies that users can search for properties available for purchase.
@@ -52,6 +57,11 @@ This smoke test suite is designed with `scalability` in mind. Features,Pages,ste
 ---
 ## Setup Instructions
 Clone this repository:
+
+1. Clone the repository.
+2. Open the `.env` file in the project root.
+3. In the `.env` file, replace the placeholder value for `USER_AGENT` with the real user agent value. Example:USER_AGENT="Please replace this placeholder with the real agent value"  **Do not commit this file to version control with the real value.**
+
 ```
  git clone https://github.com/ErDmYLmZ/qa-assignment-funda.git
 ```

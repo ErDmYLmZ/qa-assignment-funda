@@ -33,6 +33,7 @@ public class HomePage {
         this.zoekOpKaartButton = page.locator("//a[normalize-space()='Zoek op kaart']");
 
     }
+
     public void acceptButtonClick() {
         acceptButton.waitFor();
         acceptButton.click();

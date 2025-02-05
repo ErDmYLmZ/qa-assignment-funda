@@ -14,9 +14,9 @@ public class SearchResultPage extends TestBase {
     }
 
     public void assertCitySearchResult(String city) {
-        Assert.assertTrue("ERROR: Result does not match the search parameter",resultHeader.textContent().contains(city));
+        Assert.assertTrue("ERROR: Result does not match the search parameter", resultHeader.textContent().contains(city));
         String searchResultAmount = resultHeader.textContent();
-        int result = Integer.parseInt(searchResultAmount.split(" ")[0].replace(".",""));
-        Assert.assertTrue("Please check the city for searching",result >= 0);
+        int result = Integer.parseInt(searchResultAmount.split(" ")[0].replace(".", ""));
+        Assert.assertTrue("Please check the city for searching", result >= 0);
     }
 }

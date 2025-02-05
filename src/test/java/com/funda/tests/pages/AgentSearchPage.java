@@ -19,7 +19,7 @@ public class AgentSearchPage {
     }
 
     public void assertAgentSearchPageHeader() {
-        assertEquals(ConfigurationReader.get("agentSearchPageHeader"),agentSearchPageHeader.textContent().trim());
+        assertEquals(ConfigurationReader.get("agentSearchPageHeader"), agentSearchPageHeader.textContent().trim());
     }
 
     public void assertAgentSearchPageBoardIsVisible() {
@@ -27,6 +27,6 @@ public class AgentSearchPage {
     }
 
     public void assertAgentSearchPageTitle() {
-        assertEquals(ConfigurationReader.get("agentSearchPageTitle"),page.title());
+        assertEquals(ConfigurationReader.get("agentSearchPageTitle"), page.title());
     }
 }

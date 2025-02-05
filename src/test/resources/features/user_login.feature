@@ -9,8 +9,8 @@ Feature: User Login is available
     Then User logs in successfully
 
     Examples:
-      | email     | password  |
-      | email0    | password0 |
-      | email1    | password1 |
+      | email  | password  |
+      | email0 | password0 |
+      | email1 | password1 |
 
 

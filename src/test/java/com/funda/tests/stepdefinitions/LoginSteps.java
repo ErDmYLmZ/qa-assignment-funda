@@ -21,6 +21,7 @@ public class LoginSteps extends TestBase {
         if (loginPage == null) loginPage = new LoginPage(page);
         loadTestData();
     }
+
     private void loadTestData() {
         String loginTestCredentialsCsvPath = ConfigurationReader.get("loginTestCredentialsCsvPath");
         List<String[]> loginTestCredentials = CsvReader.readCsvData(loginTestCredentialsCsvPath);
@@ -28,7 +29,7 @@ public class LoginSteps extends TestBase {
             throw new IllegalStateException("CSV file is empty or incorrect");
         }
         for (int i = 0; i < loginTestCredentials.size(); i++) {
-            testDataMap.put("email"+ i, loginTestCredentials.get(i)[0]);
+            testDataMap.put("email" + i, loginTestCredentials.get(i)[0]);
             testDataMap.put("password" + i, loginTestCredentials.get(i)[1]);
         }
     }
