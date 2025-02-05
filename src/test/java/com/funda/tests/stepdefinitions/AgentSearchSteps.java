@@ -21,6 +21,7 @@ public class AgentSearchSteps extends TestBase {
     public void the_agent_search_page_is_displayed() {
         agentSearchPage.assertAgentSearchPageHeader();
         agentSearchPage.assertAgentSearchPageBoardIsVisible();
+        agentSearchPage.assertAgentSearchPageTitle();
     }
 
 
