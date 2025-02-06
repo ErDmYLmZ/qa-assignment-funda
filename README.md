@@ -38,6 +38,7 @@ This project uses the following technologies:
 
 The selected smoke tests prioritize critical user journeys and functionalities essential to the Funda experience. They focus on verifying that core elements are reachable and responsive, rather than delving into detailed data validation or complex workflows. This allows for quick identification of major issues that might prevent users from performing basic tasks. 
 The "Search for Buying" and "Search for Renting" features are crucial as they represent the primary purpose of the Funda website. The "User Login" feature, while potentially leading to more complex functional tests later, is included in the smoke test suite to verify the accessibility of the login functionality itself.  The "Displaying Map" feature is essential for users visually exploring properties, and "Searching for a Real Estate Agent" is a key component for users seeking professional assistance.
+
 ---
 ## User Login Test Approach
 
