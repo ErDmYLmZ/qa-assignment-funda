@@ -15,7 +15,7 @@ import java.nio.file.Paths;
 @Slf4j
 public class Hooks extends TestBase {
 
-    @Before()
+    @Before(value = "@SmokeTest")
     public void setup() {
         String browserType = System.getProperty("browser", "chromium");
 
@@ -47,7 +47,7 @@ public class Hooks extends TestBase {
 
     }
 
-    @After()
+    @After
     public void teardown() {
         if (page != null) {
             page.close();

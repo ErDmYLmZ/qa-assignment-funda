@@ -21,7 +21,7 @@ public class MapSteps extends TestBase {
 
     @Then("The map is displayed")
     public void the_map_is_displayed() {
-        mapDisplayPage.isMmapVisible();
+        mapDisplayPage.isMapVisible();
 
 
     }

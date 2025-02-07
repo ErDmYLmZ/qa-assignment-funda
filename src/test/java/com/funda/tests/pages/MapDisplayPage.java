@@ -15,7 +15,7 @@ public class MapDisplayPage {
         this.mapElement = page.locator("div.vue-map-container");
     }
 
-    public void isMmapVisible() {
+    public void isMapVisible() {
         mapElement.waitFor();
         assertTrue(mapElement.isVisible());
     }
