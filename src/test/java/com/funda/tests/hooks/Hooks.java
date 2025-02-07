@@ -19,7 +19,7 @@ public class Hooks extends TestBase {
 
     @Before()
     public void setup() {
-        DotEnvToSystemEnv.loadEnvToSystem();
+        DotEnvToSystemEnv.loadEnvToSystem();//all the values in the .env file are set to system
         String browserType = System.getProperty("browser", "chromium");
 
         TestBase.playwright = Playwright.create();

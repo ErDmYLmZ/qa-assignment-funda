@@ -43,8 +43,8 @@ public class LoginSteps extends TestBase {
 
     @When("User enters valid email {string} and password {string}")
     public void user_enters_valid_email_and_password(String emailPlaceholder, String passwordPlaceholder) {
-        String email = DotEnvToSystemEnv.getEnvValue(emailPlaceholder);
-        String password = DotEnvToSystemEnv.getEnvValue(passwordPlaceholder);
+        String email = DotEnvToSystemEnv.getEnvValue(emailPlaceholder); //values are read from system instead of .env file(they are set at the hooks stage)
+        String password = DotEnvToSystemEnv.getEnvValue(passwordPlaceholder);//values are read from system instead of .env file(they are set at the hooks stage)
         if (email == null || password == null) {
             throw new IllegalArgumentException("No available test data for : " + emailPlaceholder + ", " + passwordPlaceholder);
         }
