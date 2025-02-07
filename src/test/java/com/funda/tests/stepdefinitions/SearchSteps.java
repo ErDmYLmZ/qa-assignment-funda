@@ -41,7 +41,7 @@ public class SearchSteps extends TestBase {
         page.navigate(ConfigurationReader.get("baseUrl"));
         page.waitForLoadState(LoadState.LOAD);
         homePage.acceptButtonClick();
-        page.waitForLoadState(LoadState.NETWORKIDLE);
+        page.waitForLoadState(LoadState.LOAD);
         assertEquals(ConfigurationReader.get("homePageTitle"), page.title(), "Page title does not match!");
 
     }

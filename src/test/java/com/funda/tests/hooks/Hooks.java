@@ -1,6 +1,7 @@
 package com.funda.tests.hooks;
 
 import com.funda.tests.test_base.TestBase;
+import com.funda.tests.utils.DotEnvToSystemEnv;
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
@@ -18,7 +19,7 @@ public class Hooks extends TestBase {
 
     @Before()
     public void setup() {
-        Dotenv dotenv = Dotenv.load();
+        DotEnvToSystemEnv.loadEnvToSystem();
         String browserType = System.getProperty("browser", "chromium");
 
         TestBase.playwright = Playwright.create();
@@ -43,7 +44,7 @@ public class Hooks extends TestBase {
             default:
                 throw new IllegalArgumentException("Unsupported browser: " + browserType);
         }
-        context = browser.newContext(new Browser.NewContextOptions().setUserAgent(dotenv.get("USER_AGENT")));
+        context = browser.newContext(new Browser.NewContextOptions().setUserAgent(DotEnvToSystemEnv.getEnvValue("USER_AGENT")));
         page = context.newPage();
         log.info("Browser '{}' started", browserType);
 
