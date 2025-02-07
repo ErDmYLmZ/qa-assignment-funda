@@ -8,6 +8,7 @@ import com.microsoft.playwright.Playwright;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import io.github.cdimascio.dotenv.Dotenv;
 import lombok.extern.slf4j.Slf4j;
 
 import java.nio.file.Paths;
@@ -17,6 +18,7 @@ public class Hooks extends TestBase {
 
     @Before()
     public void setup() {
+        Dotenv dotenv = Dotenv.load();
         String browserType = System.getProperty("browser", "chromium");
 
         TestBase.playwright = Playwright.create();

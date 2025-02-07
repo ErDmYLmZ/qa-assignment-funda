@@ -7,6 +7,7 @@ import com.funda.tests.utils.ConfigurationReader;
 import com.funda.tests.utils.CsvReader;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
+import io.github.cdimascio.dotenv.Dotenv;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Map;
 
 public class LoginSteps extends TestBase {
     private static final Map<String, String> testDataMap = new HashMap<>();
-
+    Dotenv dotenv = Dotenv.load();
     @Before
     public void initPageObjects() {
         if (homePage == null) homePage = new HomePage(page);
@@ -41,8 +42,8 @@ public class LoginSteps extends TestBase {
 
     @When("User enters valid email {string} and password {string}")
     public void user_enters_valid_email_and_password(String emailPlaceholder, String passwordPlaceholder) {
-        String email = testDataMap.get(emailPlaceholder);
-        String password = testDataMap.get(passwordPlaceholder);
+        String email = dotenv.get(emailPlaceholder);
+        String password = dotenv.get(passwordPlaceholder);
         if (email == null || password == null) {
             throw new IllegalArgumentException("No available test data for : " + emailPlaceholder + ", " + passwordPlaceholder);
         }
