@@ -5,6 +5,7 @@ import com.funda.tests.pages.LoginPage;
 import com.funda.tests.test_base.TestBase;
 import com.funda.tests.utils.ConfigurationReader;
 import com.funda.tests.utils.CsvReader;
+import com.funda.tests.utils.DotEnvToSystemEnv;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 
@@ -14,6 +15,7 @@ import java.util.Map;
 
 public class LoginSteps extends TestBase {
     private static final Map<String, String> testDataMap = new HashMap<>();
+
 
     @Before
     public void initPageObjects() {
@@ -41,8 +43,8 @@ public class LoginSteps extends TestBase {
 
     @When("User enters valid email {string} and password {string}")
     public void user_enters_valid_email_and_password(String emailPlaceholder, String passwordPlaceholder) {
-        String email = testDataMap.get(emailPlaceholder);
-        String password = testDataMap.get(passwordPlaceholder);
+        String email = DotEnvToSystemEnv.getEnvValue(emailPlaceholder);
+        String password = DotEnvToSystemEnv.getEnvValue(passwordPlaceholder);
         if (email == null || password == null) {
             throw new IllegalArgumentException("No available test data for : " + emailPlaceholder + ", " + passwordPlaceholder);
         }

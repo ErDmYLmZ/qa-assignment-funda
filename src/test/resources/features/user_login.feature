@@ -10,7 +10,7 @@ Feature: User Login is available
 
     Examples:
       | email  | password  |
-      | email0 | password0 |
       | email1 | password1 |
+      | email2 | password2 |
 
 

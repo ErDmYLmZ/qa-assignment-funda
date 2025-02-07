@@ -5,7 +5,7 @@ import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
-import io.github.cdimascio.dotenv.Dotenv;
+
 
 
 public class TestBase {
@@ -13,7 +13,7 @@ public class TestBase {
     protected static Browser browser;
     protected static Page page;
     protected static BrowserContext context;
-    protected static final Dotenv dotenv = Dotenv.load();
+
 
     protected HomePage homePage;
     protected SearchResultPage searchResultPage;
